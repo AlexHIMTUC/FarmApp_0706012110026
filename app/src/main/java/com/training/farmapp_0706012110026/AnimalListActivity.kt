@@ -48,7 +48,7 @@ class AnimalListActivity : AppCompatActivity(), CardClick {
                     val snackBar = Snackbar.make(binding.root, "Hewan telah dihapus", Snackbar.LENGTH_SHORT)
                     snackBar.setAction("Dismiss", View.OnClickListener {
                         snackBar.dismiss()
-                    }).show()
+                    }).setAnchorView(binding.fabAddAnimal).show()
                     checker()
                     adapter.notifyDataSetChanged()
                 }
@@ -56,7 +56,7 @@ class AnimalListActivity : AppCompatActivity(), CardClick {
                     val snackBar = Snackbar.make(binding.root, "Hewan tidak jadi dihapus", Snackbar.LENGTH_SHORT)
                     snackBar.setAction("Dismiss", View.OnClickListener {
                         snackBar.dismiss()
-                    }).show()
+                    }).setAnchorView(binding.fabAddAnimal).show()
                     dialog.dismiss()
                 }
             val alert = builder.create()
