@@ -3,14 +3,14 @@ package com.training.farmapp_0706012110026.Model
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Animal(var nama : String?, var jenis : String?, var age : Double?) : Parcelable {
+data class Animal(var nama : String?, var jenis : String?, var age : Int?) : Parcelable {
 
     var imageUri : String? = ""
 
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
-        parcel.readValue(Int::class.java.classLoader) as? Double
+        parcel.readValue(Int::class.java.classLoader) as? Int
     ) {
     }
 
