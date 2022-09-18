@@ -75,7 +75,10 @@ class AnimalFormActivity : AppCompatActivity() {
         binding.inputName.editText?.setText(animal.nama)
         binding.inputJenis.editText?.setText(animal.jenis)
         binding.inputUsia.editText?.setText(animal.age.toString().split(".")[0])
-        binding.inputCurImage.setImageURI(Uri.parse(animal.imageUri))
+        if(animal.imageUri != ""){
+            binding.inputCurImage.setImageURI(Uri.parse(animal.imageUri))
+        }
+
         imageUri = animal.imageUri.toString()
     }
     private fun listener(){
@@ -87,7 +90,7 @@ class AnimalFormActivity : AppCompatActivity() {
                 umur = "-1"
             }
 
-            inputChecker(Animal(name, jenis, umur.toDouble()))
+            inputChecker(Animal(name, jenis, umur.toInt()))
         }
 
         binding.inputImageBtn.setOnClickListener{
@@ -114,7 +117,7 @@ class AnimalFormActivity : AppCompatActivity() {
             binding.inputJenis.error = ""
         }
 
-        if(animal.age!! == 0.0){
+        if(animal.age!! == 0){
             binding.inputUsia.error = "Tolong isi kolom umur"
             isCompleted = false
         }else if(animal.age!! < 0){
