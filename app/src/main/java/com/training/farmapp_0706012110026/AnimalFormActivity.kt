@@ -57,15 +57,16 @@ class AnimalFormActivity : AppCompatActivity() {
     }
 
     private val GetResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            baseContext.getContentResolver().takePersistableUriPermission(Uri.parse(it.data?.data.toString()),
-                Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-            )
-        }
+
         if (it.resultCode == Activity.RESULT_OK){
             val uri = it.data?.data
             binding.inputCurImage.setImageURI(uri)
             imageUri = uri.toString()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                baseContext.getContentResolver().takePersistableUriPermission(Uri.parse(it.data?.data.toString()),
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                )
+            }
         }
 
     }
