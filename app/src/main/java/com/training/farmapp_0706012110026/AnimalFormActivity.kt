@@ -74,7 +74,7 @@ class AnimalFormActivity : AppCompatActivity() {
     private fun setValueToInput(animal : Animal){
         binding.inputName.editText?.setText(animal.nama)
         binding.inputJenis.editText?.setText(animal.jenis)
-        binding.inputUsia.editText?.setText(animal.age.toString().split(".")[0])
+        binding.inputUsia.editText?.setText(animal.age.toString())
         if(animal.imageUri != ""){
             binding.inputCurImage.setImageURI(Uri.parse(animal.imageUri))
         }

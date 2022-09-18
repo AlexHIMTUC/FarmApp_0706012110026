@@ -19,7 +19,7 @@ RecyclerView.Adapter<AnimalListAdapter.viewHolder>() {
 
         fun setData(data: Animal, cardClick: CardClick){
             binding.animalListName.text = data.nama
-            binding.animalListAge.text = data.age.toString().split(".")[0]
+            binding.animalListAge.text = "Usia : " + data.age.toString() + " tahun"
             binding.animalListType.text = data.jenis
             if(data.imageUri?.isNotEmpty() == true)
                 binding.imageUri.setImageURI(Uri.parse(data.imageUri))
