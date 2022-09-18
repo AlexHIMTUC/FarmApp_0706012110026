@@ -39,7 +39,7 @@ class AnimalListActivity : AppCompatActivity(), CardClick {
             val intent = Intent(this, AnimalFormActivity::class.java).apply{
                 putExtra("position", position)
             }
-            startActivity(intent)
+            startActivityForResult(intent, 10)
         }else{
             val builder = AlertDialog.Builder(this)
             builder.setMessage("Apakah anda yakin ingin menghapus data ini ?")
